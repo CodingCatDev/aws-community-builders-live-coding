@@ -1,6 +1,6 @@
 # AWS Community Builders Live Coding
 ## Alex Bio
-I’m the founder of CodingCatDev, where we create “Purrfect Web Tutorials” to teach the world how to turn their development dreams into reality. I am a professional full stack developer, and I am passionate about mentoring new developers and helping the community that has allowed me to live my development dreams. I firmly believe that anyone can learn to be a developer. The CodingCatDev team is here to help! 
+I’m the founder of [CodingCatDev](https://codingcat.dev), where we create “Purrfect Web Tutorials” to teach the world how to turn their development dreams into reality. I am a professional full stack developer, and I am passionate about mentoring new developers and helping the community that has allowed me to live my development dreams. I firmly believe that anyone can learn to be a developer. The CodingCatDev team is here to help! 
 
 ## AWS Community Builders - Code Together
 
