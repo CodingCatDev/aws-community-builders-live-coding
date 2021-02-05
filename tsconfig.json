@@ -20,11 +20,7 @@
       "@/config/*": ["config/*"],
       "@/layout/*": ["layout/*"],
       "@/pages/*": ["pages/*"],
-      "@/services/*": ["services/*"],
-      "@/utils/*": ["utils/*"],
-      "@/models/*": ["models/*"],
-      "@/styles/*": ["styles/*"],
-      "@/assets/*": ["assets/*"]
+      "@/graphql/*": ["src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
