@@ -1,103 +1,32 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createTalk = /* GraphQL */ `
+  mutation CreateTalk(
+    $input: CreateTalkInput!
+    $condition: ModelTalkConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
+    createTalk(input: $input, condition: $condition) {
       id
       name
-      posts {
-        items {
-          id
-          title
-          alex
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
-  ) {
-    updateBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          alex
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
-  ) {
-    deleteBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          alex
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      alex
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      speakerName
+      speakerBio
+      time
+      timeStamp
+      date
+      location
+      summary
+      twitter
+      github
+      speakerAvatar
       comments {
         items {
           id
-          postID
-          content
+          talkId
+          message
           createdAt
+          createdBy
+          deviceId
           updatedAt
         }
         nextToken
@@ -107,31 +36,32 @@ export const createPost = /* GraphQL */ `
     }
   }
 `;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
+export const updateTalk = /* GraphQL */ `
+  mutation UpdateTalk(
+    $input: UpdateTalkInput!
+    $condition: ModelTalkConditionInput
   ) {
-    updatePost(input: $input, condition: $condition) {
+    updateTalk(input: $input, condition: $condition) {
       id
-      title
-      alex
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      name
+      speakerName
+      speakerBio
+      time
+      timeStamp
+      date
+      location
+      summary
+      twitter
+      github
+      speakerAvatar
       comments {
         items {
           id
-          postID
-          content
+          talkId
+          message
           createdAt
+          createdBy
+          deviceId
           updatedAt
         }
         nextToken
@@ -141,31 +71,32 @@ export const updatePost = /* GraphQL */ `
     }
   }
 `;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
+export const deleteTalk = /* GraphQL */ `
+  mutation DeleteTalk(
+    $input: DeleteTalkInput!
+    $condition: ModelTalkConditionInput
   ) {
-    deletePost(input: $input, condition: $condition) {
+    deleteTalk(input: $input, condition: $condition) {
       id
-      title
-      alex
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      name
+      speakerName
+      speakerBio
+      time
+      timeStamp
+      date
+      location
+      summary
+      twitter
+      github
+      speakerAvatar
       comments {
         items {
           id
-          postID
-          content
+          talkId
+          message
           createdAt
+          createdBy
+          deviceId
           updatedAt
         }
         nextToken
@@ -182,26 +113,30 @@ export const createComment = /* GraphQL */ `
   ) {
     createComment(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      talkId
+      talk {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
         createdAt
         updatedAt
       }
-      content
+      message
       createdAt
+      createdBy
+      deviceId
       updatedAt
     }
   }
@@ -213,26 +148,30 @@ export const updateComment = /* GraphQL */ `
   ) {
     updateComment(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      talkId
+      talk {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
         createdAt
         updatedAt
       }
-      content
+      message
       createdAt
+      createdBy
+      deviceId
       updatedAt
     }
   }
@@ -244,25 +183,77 @@ export const deleteComment = /* GraphQL */ `
   ) {
     deleteComment(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      talkId
+      talk {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
         createdAt
         updatedAt
       }
-      content
+      message
+      createdAt
+      createdBy
+      deviceId
+      updatedAt
+    }
+  }
+`;
+export const createReport = /* GraphQL */ `
+  mutation CreateReport(
+    $input: CreateReportInput!
+    $condition: ModelReportConditionInput
+  ) {
+    createReport(input: $input, condition: $condition) {
+      id
+      commentId
+      comment
+      talkTitle
+      deviceId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateReport = /* GraphQL */ `
+  mutation UpdateReport(
+    $input: UpdateReportInput!
+    $condition: ModelReportConditionInput
+  ) {
+    updateReport(input: $input, condition: $condition) {
+      id
+      commentId
+      comment
+      talkTitle
+      deviceId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteReport = /* GraphQL */ `
+  mutation DeleteReport(
+    $input: DeleteReportInput!
+    $condition: ModelReportConditionInput
+  ) {
+    deleteReport(input: $input, condition: $condition) {
+      id
+      commentId
+      comment
+      talkTitle
+      deviceId
       createdAt
       updatedAt
     }

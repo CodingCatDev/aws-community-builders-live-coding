@@ -1,91 +1,61 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog {
-    onCreateBlog {
+export const onCreateCommentWithId = /* GraphQL */ `
+  subscription OnCreateCommentWithId($talkId: ID!) {
+    onCreateCommentWithId(talkId: $talkId) {
       id
-      name
-      posts {
-        items {
-          id
-          title
-          alex
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog {
-    onUpdateBlog {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          alex
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog {
-    onDeleteBlog {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          alex
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
-      id
-      title
-      alex
-      blogID
-      blog {
+      talkId
+      talk {
         id
         name
-        posts {
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
+        comments {
           nextToken
         }
         createdAt
         updatedAt
       }
+      message
+      createdAt
+      createdBy
+      deviceId
+      updatedAt
+    }
+  }
+`;
+export const onCreateTalk = /* GraphQL */ `
+  subscription OnCreateTalk {
+    onCreateTalk {
+      id
+      name
+      speakerName
+      speakerBio
+      time
+      timeStamp
+      date
+      location
+      summary
+      twitter
+      github
+      speakerAvatar
       comments {
         items {
           id
-          postID
-          content
+          talkId
+          message
           createdAt
+          createdBy
+          deviceId
           updatedAt
         }
         nextToken
@@ -95,28 +65,29 @@ export const onCreatePost = /* GraphQL */ `
     }
   }
 `;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+export const onUpdateTalk = /* GraphQL */ `
+  subscription OnUpdateTalk {
+    onUpdateTalk {
       id
-      title
-      alex
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      name
+      speakerName
+      speakerBio
+      time
+      timeStamp
+      date
+      location
+      summary
+      twitter
+      github
+      speakerAvatar
       comments {
         items {
           id
-          postID
-          content
+          talkId
+          message
           createdAt
+          createdBy
+          deviceId
           updatedAt
         }
         nextToken
@@ -126,28 +97,29 @@ export const onUpdatePost = /* GraphQL */ `
     }
   }
 `;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
+export const onDeleteTalk = /* GraphQL */ `
+  subscription OnDeleteTalk {
+    onDeleteTalk {
       id
-      title
-      alex
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      name
+      speakerName
+      speakerBio
+      time
+      timeStamp
+      date
+      location
+      summary
+      twitter
+      github
+      speakerAvatar
       comments {
         items {
           id
-          postID
-          content
+          talkId
+          message
           createdAt
+          createdBy
+          deviceId
           updatedAt
         }
         nextToken
@@ -161,26 +133,30 @@ export const onCreateComment = /* GraphQL */ `
   subscription OnCreateComment {
     onCreateComment {
       id
-      postID
-      post {
+      talkId
+      talk {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
         createdAt
         updatedAt
       }
-      content
+      message
       createdAt
+      createdBy
+      deviceId
       updatedAt
     }
   }
@@ -189,26 +165,30 @@ export const onUpdateComment = /* GraphQL */ `
   subscription OnUpdateComment {
     onUpdateComment {
       id
-      postID
-      post {
+      talkId
+      talk {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
         createdAt
         updatedAt
       }
-      content
+      message
       createdAt
+      createdBy
+      deviceId
       updatedAt
     }
   }
@@ -217,25 +197,68 @@ export const onDeleteComment = /* GraphQL */ `
   subscription OnDeleteComment {
     onDeleteComment {
       id
-      postID
-      post {
+      talkId
+      talk {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
         createdAt
         updatedAt
       }
-      content
+      message
+      createdAt
+      createdBy
+      deviceId
+      updatedAt
+    }
+  }
+`;
+export const onCreateReport = /* GraphQL */ `
+  subscription OnCreateReport {
+    onCreateReport {
+      id
+      commentId
+      comment
+      talkTitle
+      deviceId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateReport = /* GraphQL */ `
+  subscription OnUpdateReport {
+    onUpdateReport {
+      id
+      commentId
+      comment
+      talkTitle
+      deviceId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteReport = /* GraphQL */ `
+  subscription OnDeleteReport {
+    onDeleteReport {
+      id
+      commentId
+      comment
+      talkTitle
+      deviceId
       createdAt
       updatedAt
     }

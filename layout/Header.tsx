@@ -25,23 +25,23 @@ export default function Header(props: any): JSX.Element{
           </svg>
 
         </div>
-        <div className="flex flex-row  items-center">
-          <a href="#" className="m-2 text-center flex flex-col items-center">
+        <div className="flex flex-row items-center">
+          <a href="#" className="flex flex-col items-center m-2 text-center">
             <CourseIcon/>
             Courses
           </a>
-          <a href="#" className="m-2 text-center flex flex-col items-center">
+          <a href="#" className="flex flex-col items-center m-2 text-center">
             <TutorialIcon/>
             Tutorials
           </a>
-          <a href="#" className="m-2 text-center flex flex-col items-center">
+          <a href="#" className="flex flex-col items-center m-2 text-center">
             Podcasts
           </a>
-          <a href="#" className="m-2 text-center flex flex-col items-center">
+          <a href="#" className="flex flex-col items-center m-2 text-center">
             Blog
           </a>
         </div>
-        <div className="flex flex-row  items-center">
+        <div className="flex flex-row items-center">
 
           <a href="#" className="m-2">Notification icon</a>
           <a href="#" className="m-2">Search icon</a>

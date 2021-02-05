@@ -1,69 +1,61 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
-      id
-      name
-      posts {
-        items {
+export const listCommentsByTalkId = /* GraphQL */ `
+  query ListCommentsByTalkId($talkId: ID!) {
+    listCommentsByTalkId(talkId: $talkId) {
+      items {
+        id
+        talkId
+        talk {
           id
-          title
-          alex
-          blogID
+          name
+          speakerName
+          speakerBio
+          time
+          timeStamp
+          date
+          location
+          summary
+          twitter
+          github
+          speakerAvatar
           createdAt
           updatedAt
         }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        posts {
-          nextToken
-        }
+        message
         createdAt
+        createdBy
+        deviceId
         updatedAt
       }
       nextToken
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getTalk = /* GraphQL */ `
+  query GetTalk($id: ID!) {
+    getTalk(id: $id) {
       id
-      title
-      alex
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      name
+      speakerName
+      speakerBio
+      time
+      timeStamp
+      date
+      location
+      summary
+      twitter
+      github
+      speakerAvatar
       comments {
         items {
           id
-          postID
-          content
+          talkId
+          message
           createdAt
+          createdBy
+          deviceId
           updatedAt
         }
         nextToken
@@ -73,24 +65,26 @@ export const getPost = /* GraphQL */ `
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listTalks = /* GraphQL */ `
+  query ListTalks(
+    $filter: ModelTalkFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listTalks(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
@@ -105,26 +99,30 @@ export const getComment = /* GraphQL */ `
   query GetComment($id: ID!) {
     getComment(id: $id) {
       id
-      postID
-      post {
+      talkId
+      talk {
         id
-        title
-        alex
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
+        name
+        speakerName
+        speakerBio
+        time
+        timeStamp
+        date
+        location
+        summary
+        twitter
+        github
+        speakerAvatar
         comments {
           nextToken
         }
         createdAt
         updatedAt
       }
-      content
+      message
       createdAt
+      createdBy
+      deviceId
       updatedAt
     }
   }
@@ -138,16 +136,59 @@ export const listComments = /* GraphQL */ `
     listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        postID
-        post {
+        talkId
+        talk {
           id
-          title
-          alex
-          blogID
+          name
+          speakerName
+          speakerBio
+          time
+          timeStamp
+          date
+          location
+          summary
+          twitter
+          github
+          speakerAvatar
           createdAt
           updatedAt
         }
-        content
+        message
+        createdAt
+        createdBy
+        deviceId
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getReport = /* GraphQL */ `
+  query GetReport($id: ID!) {
+    getReport(id: $id) {
+      id
+      commentId
+      comment
+      talkTitle
+      deviceId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listReports = /* GraphQL */ `
+  query ListReports(
+    $filter: ModelReportFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listReports(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        commentId
+        comment
+        talkTitle
+        deviceId
         createdAt
         updatedAt
       }
