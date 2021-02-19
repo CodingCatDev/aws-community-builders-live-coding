@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import router from 'next/router';
 import AwsCommunityBuilders from '@/components/global/icons/AwsCommunityBuilders';
 import { ProfileIcon } from '@/components/global/icons/RandomIcons';
+import { Auth } from 'aws-amplify';
 
 export default function Header(props: any): JSX.Element {
+  async function signout() {
+    await Auth.signOut();
+  }
   return (
     <div className="flex flex-row justify-between px-8 text-white bg-secondary-900">
       <div className="flex flex-row">
@@ -34,7 +39,12 @@ export default function Header(props: any): JSX.Element {
         <Link href="/admin">
           <button className="btn-primary">Admin</button>
         </Link>
-
+        <button
+          className="btn-primary bg-secondary-500"
+          onClick={() => signout()}
+        >
+          Sign Out
+        </button>
         <ProfileIcon />
       </div>
     </div>

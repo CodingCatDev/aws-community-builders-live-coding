@@ -1,8 +1,15 @@
 import Layout from '@/layout/Layout';
 import Head from 'next/head';
 import AdminToolbar from '@/components/admin/Toolbar';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Auth } from 'aws-amplify';
+import { useEffect } from 'react';
 
-export default function Admin() {
+function Admin() {
+  useEffect(() => {
+    Auth.currentUserInfo().then((user) => console.log(user));
+    return () => {};
+  }, []);
   return (
     <Layout>
       <Head>
@@ -18,3 +25,4 @@ export default function Admin() {
     </Layout>
   );
 }
+export default withAuthenticator(Admin);

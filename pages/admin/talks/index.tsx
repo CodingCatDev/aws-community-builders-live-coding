@@ -3,15 +3,12 @@ import Layout from '@/layout/Layout';
 import Head from 'next/head';
 import AdminToolbar from '@/components/admin/Toolbar';
 
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import awsconfig from '@/graphql/aws-exports';
-Amplify.configure(awsconfig);
+import { DataStore } from 'aws-amplify';
 
-import { createTalk } from '@/graphql/graphql/mutations';
-import { listTalks } from '@/graphql/graphql/queries';
+import { Talk } from '@/amplify/models';
 
 export default function Talks() {
-  const [talks, setTalks] = useState([]);
+  const [talks, setTalks] = useState<Talk[]>([]);
 
   useEffect(() => {
     loadTalks();
@@ -19,18 +16,19 @@ export default function Talks() {
   }, []);
 
   async function loadTalks() {
-    const t: any = await API.graphql(graphqlOperation(listTalks));
-    setTalks(t.data.listTalks.items);
+    const posts = await DataStore.query(Talk);
+    setTalks(posts);
   }
 
   async function onCreateTalk() {
-    const talk = {
-      name: 'Black Cat LMS',
-      speakerName: 'Alex',
-      speakerBio: 'CodingCatDev Founder',
-      summary: 'A Next.js Amplify LMS',
-    };
-    await API.graphql(graphqlOperation(createTalk, { input: talk }));
+    await DataStore.save<Talk>(
+      new Talk({
+        name: 'Black Cat LMS',
+        speakerName: 'Alex',
+        speakerBio: 'CodingCatDev Founder',
+        summary: 'A Next.js Amplify LMS',
+      })
+    );
     loadTalks();
   }
   return (
